@@ -1,29 +1,31 @@
+document.body.style.textAlign = "center";
+document.body.style.backgroundColor = "#E8E1CE";
+
 function apiPromise() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve("Data is loading...");
-      reject("There has been an error.");
+      reject("There has been an error...");
     }, 2000);
   });
 }
-
-const endpoint = "https://api.github.com/users/john";
-
-document.body.style.textAlign = "center";
-document.body.style.backgroundColor = "#E8E1CE";
 
 
 apiPromise()
   .then((data) => {
     const loadingText = document.querySelector("[data-reply]");
     loadingText.innerText = data;
-    // console.log(data); // "Data is printing..."
+    // console.log(data); // "Data is loading..."
   })
   .catch((error) => {
+    const loadingText = document.querySelector("[data-reply]");
     loadingText.innerText = error;
-
-    console.error(error);
+    // console.error(error); "There has been an error..."
   })
+
+
+const endpoint = "https://api.github.com/users/john";
+
 
 fetch(endpoint)
   .then((response) => {
@@ -31,7 +33,6 @@ fetch(endpoint)
   })
   .then((data) => {
     const dataForm = document.querySelector("[data-form]");
-
     const input = document.querySelector("input");
 
     input.addEventListener("keyup", (event) => {
@@ -39,6 +40,7 @@ fetch(endpoint)
       const p = document.createElement("p");
       document.body.appendChild(p);
       p.textContent += `${data.login}`;
+
     })
 
   })
