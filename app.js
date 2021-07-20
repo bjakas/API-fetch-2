@@ -1,50 +1,47 @@
+function apiPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data is loading...");
+      reject("There has been an error.");
+    }, 2000);
+  });
+}
+
 const endpoint = "https://api.github.com/users/john";
+
+document.body.style.textAlign = "center";
+document.body.style.backgroundColor = "#E8E1CE";
+
+
+apiPromise()
+  .then((data) => {
+    const loadingText = document.querySelector("[data-reply]");
+    loadingText.innerText = data;
+    // console.log(data); // "Data is printing..."
+  })
+  .catch((error) => {
+    loadingText.innerText = error;
+
+    console.error(error);
+  })
 
 fetch(endpoint)
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    const h1 = document.createElement("h1");
-    h1.innerText = `User who wants to share something with us is: ${data.name}`;
-    document.body.appendChild(h1);
+    const dataForm = document.querySelector("[data-form]");
 
-    const div = document.createElement("div");
-    document.body.appendChild(div);
-    div.innerHTML = `<label>Type in any key and see what happens: <input type="text" id="case-up"/></label>`;
-    const p = document.createElement("p");
-    document.body.appendChild(p);
+    const input = document.querySelector("input");
 
-    div.addEventListener("keyup", (event) => {
+    input.addEventListener("keyup", (event) => {
       event.preventDefault();
-      p.textContent += `${event.code}`;
-      // document.querySelector("input").style.backgroundColor = "lightblue"; could add as well
-      const caseUp = document.querySelector("#case-up");
-      caseUp.value = caseUp.value.toUpperCase();
+      const p = document.createElement("p");
+      document.body.appendChild(p);
+      p.textContent += `${data.login}`;
     })
-
-    const randomText = document.createElement("p");
-    randomText.innerText = "Here is Johns profile image: ";
-    document.body.appendChild(randomText);
-
-    const img = document.createElement("img");
-    img.setAttribute("src", data.avatar_url);
-    img.setAttribute("alt", `${data.login} profile image`);
-    img.width = "200";
-    img.height = "200";
-    document.body.appendChild(img);
-
-    const a = document.createElement("a");
-    a.setAttribute("href", data.html_url);
-    a.innerText = "You are welcome to visit Johns GitHub page";
-    document.body.appendChild(a);
-
-    document.body.style.textAlign = "center";
-    document.body.style.backgroundColor = "#E8E1CE";
-
-    console.log(data);
 
   })
   .catch((error) => {
     console.error(error);
-  })
+  });
