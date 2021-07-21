@@ -18,12 +18,12 @@ inputElement.addEventListener('keyup', (event) => {
 
         itemElement.innerText = `User name: ${item.login}, user url: ${item.html_url}`;
         resultElement.appendChild(itemElement);
-        console.log(data.items[i]);
+        console.log(item.login, item.html_url); // we can console log user name and url or whatever we need
       }
     })
     .catch((error) => {
       console.error(error);
       //alert('Error!')
-      resultElement.innerText = "There has been an error with retrieving data.";
+      resultElement.innerText = "There has been an error while retrieving data.";
     });
 });
