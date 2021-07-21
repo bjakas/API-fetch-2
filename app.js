@@ -5,6 +5,7 @@ const resultElement = document.querySelector('[data-search-result]');
 
 inputElement.addEventListener('keyup', (event) => {
   const username = event.target.value;
+  resultElement.innerText = "Please wait while data is loading...";
 
   fetch(endpoint + username)
     .then(response => response.json())
@@ -15,12 +16,14 @@ inputElement.addEventListener('keyup', (event) => {
         const item = data.items[i];
         const itemElement = document.createElement('div');
 
-        itemElement.innerText = item.html_url;
+        itemElement.innerText = `User name: ${item.login}, user url: ${item.html_url}`;
         resultElement.appendChild(itemElement);
+        console.log(data.items[i]);
       }
     })
     .catch((error) => {
       console.error(error);
-      alert('Error!')
+      //alert('Error!')
+      resultElement.innerText = "There has been an error with retrieving data.";
     });
 });
