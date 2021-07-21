@@ -6,6 +6,7 @@ const resultElement = document.querySelector('[data-search-result]');
 inputElement.addEventListener('keyup', (event) => {
   const username = event.target.value;
   resultElement.innerText = "Please wait while data is loading...";
+  console.log("Data is loading...")
 
   fetch(endpoint + username)
     .then(response => response.json())
@@ -22,8 +23,8 @@ inputElement.addEventListener('keyup', (event) => {
       }
     })
     .catch((error) => {
-      console.error(error);
+      console.error("This is the error that occured:", error); // error in console
       //alert('Error!')
-      resultElement.innerText = "There has been an error while retrieving data.";
+      resultElement.innerText = "There has been an error while retrieving data."; // error message shown to page visitor 
     });
 });
