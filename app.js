@@ -9,7 +9,14 @@ inputElement.addEventListener('keyup', (event) => {
   console.log("Data is loading...")
 
   fetch(endpoint + username)
-    .then(response => response.json())
+    .then(response => { // check if response is ok and console either outcome
+      if (response.ok) {
+        console.log("Success!");
+        return response.json();
+      } else {
+        console.error("Not successful");
+      };
+    })
     .then(data => {
       resultElement.innerHTML = '';
 
