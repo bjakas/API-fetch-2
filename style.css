@@ -6,6 +6,11 @@
 body {
   background-color: #000000;
   font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-width: 100vw;
 }
 
 #check {
@@ -21,7 +26,6 @@ body {
 .container-for-header {
   position: absolute;
   top: 50px;
-  left: 50%;
   bottom: 50px;
   height: 25px;
   text-align: left;
@@ -30,14 +34,12 @@ body {
   transition: .5s;
   position: absolute;
   top: 150px;
-  left: 50%;
   width: 60px;
   height: 60px;
 }
 .container-for-results {
   position: absolute;
   top: 250px;
-  left: 50%;
   padding-bottom: 30px;
   color: whitesmoke;
   font-size: 16px;
