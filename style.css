@@ -12,13 +12,14 @@ body {
   opacity: 0;
 }
 .parent {
-  position: static;
+  position: relative;
+  top: 0;
   width: 50%;
   height: auto
 
 }
 .container-for-header {
-  position: relative;
+  position: absolute;
   top: 50px;
   left: 50%;
   bottom: 50px;
@@ -27,15 +28,15 @@ body {
 }
 .container-for-input {
   transition: .5s;
-  position: relative;
-  top: 100px;
+  position: absolute;
+  top: 150px;
   left: 50%;
   width: 60px;
   height: 60px;
 }
 .container-for-results {
-  position: relative;
-  top: 150px;
+  position: absolute;
+  top: 250px;
   left: 50%;
   padding-bottom: 30px;
   color: whitesmoke;
