@@ -6,16 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>GitHub User Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- style for search icon from fontawsome -->
+  <link rel="stylesheet" href="all.min.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1>Type in a name to search GitHub users:</h1>
-    <input data-search-input />
-    <div data-search-result></div>
-    <script src="app.js"></script>
+  <div class="parent">
+    <div class="container-for-header">
+      <h1>Dear visitor, welcome to GitHub's search engine!</h1>
+    </div>
+
+    <input type="checkbox" id="check">
+
+    <div class="container-for-input">
+      <input data-search-input type="text" placeholder="Search here..." />
+      <label for="check"><i class="fas fa-search"></i></label>
+    </div>
+
+    <div class="container-for-results" data-search-result></div>
   </div>
+  <script src="app.js"></script>
+  <script src="all.min.js"></script>
 </body>
 
 </html>
