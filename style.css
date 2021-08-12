@@ -79,7 +79,7 @@ body {
 #check:checked+.container-for-input > input {
   opacity: 1;
 }
-#check:checked+.container-for-input > label {
+#check:checked+.container-for-input> label {
   box-shadow: none;
 }
 #check:checked+.container-for-input > label:hover {
@@ -87,7 +87,10 @@ body {
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 54px;
   font-weight: bold;
+  color: white;
+}
+::placeholder {
   color: white;
 }
