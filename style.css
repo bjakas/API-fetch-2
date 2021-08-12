@@ -93,4 +93,5 @@ h1 {
 }
 ::placeholder {
   color: white;
+  opacity: 1; /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
 }
