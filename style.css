@@ -20,20 +20,19 @@ body {
 
 .container-for-header {
   position: static;
-  margin-top: 50px;
-  height: 25px;
+  margin-top: 40px;
 }
 .container-for-input {
   transition: .5s;
   position: absolute;
-  top: 150px;
+  top: 160px;
   width: 60px;
   height: 60px;
 }
 .container-for-results {
   position: absolute;
-  top: 250px;
-  padding-bottom: 30px;
+  top: 280px;
+  padding-bottom: 40px;
   color: rgb(255, 255, 255);
   font-size: 16px;
 }
