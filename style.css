@@ -19,11 +19,9 @@ body {
 }
 
 .container-for-header {
-  position: relative;
-  top: 50px;
-  bottom: 50px;
+  position: static;
+  margin-top: 50px;
   height: 25px;
-  text-align: left;
 }
 .container-for-input {
   transition: .5s;
