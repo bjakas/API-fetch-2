@@ -1,3 +1,14 @@
+@keyframes slide-in {
+  from {
+      transform: translateY(-200px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -5,8 +16,14 @@
 }
 
 body {
-  background-color: #333;
-  font-family: 'Ubuntu', sans-serif;
+  background-color: rgb(69 90 100);
+  color: black;
+  font-family: 'Ubuntu', sans-serif; 
+}
+
+.wrapping-container {
+  animation: slide-in 3s ease 1s 1 normal forwards;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,22 +36,20 @@ body {
 }
 
 .container-for-header {
-  position: static;
-  margin-top: 40px;
+  text-align: center;
 }
 .container-for-input {
   transition: .5s;
-  position: absolute;
-  top: 160px;
+  position: relative;
   width: 60px;
   height: 60px;
+  margin-bottom: 35px;
 }
 .container-for-results {
-  position: absolute;
-  top: 280px;
-  padding-bottom: 40px;
+  padding-bottom: 35px;
   color: rgb(255, 255, 255);
   font-size: 16px;
+  text-align: center;
 }
 
 .container-for-input label{
@@ -84,6 +99,7 @@ body {
 }
 
 h1 {
+  margin-bottom: 35px;
   font-size: 54px;
   font-weight: bold;
   color: white;
@@ -91,4 +107,16 @@ h1 {
 ::placeholder {
   color: white;
   opacity: 1; /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+}
+img {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+img:hover {
+  transition: 3s;
+  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  background-color: white;
 }

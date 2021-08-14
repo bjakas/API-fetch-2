@@ -16,18 +16,21 @@
 </head>
 
 <body>
-  <div class="container-for-header">
-    <h1>Welcome to GitHub's search engine!</h1>
+  <div class="wrapping-container">
+    <div class="container-for-header">
+      <img src="./github.png" alt="GitHub logo">
+      <h1>Welcome to GitHub's search engine!</h1>
+    </div>
+
+    <input type="checkbox" id="check">
+
+    <div class="container-for-input">
+      <input data-search-input type="text" placeholder="Search here..." />
+      <label for="check"><i class="fas fa-search"></i></label>
+    </div>
+
+    <div class="container-for-results" data-search-result></div>
   </div>
-
-  <input type="checkbox" id="check">
-
-  <div class="container-for-input">
-    <input data-search-input type="text" placeholder="Search here..." />
-    <label for="check"><i class="fas fa-search"></i></label>
-  </div>
-
-  <div class="container-for-results" data-search-result></div>
   <script src="app.js"></script>
   <script src="all.min.js"></script>
 </body>
