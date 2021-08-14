@@ -15,3 +15,8 @@ Npr. pretraga svih korisnika koji u imenu imaju "john" izgleda ovako: https://ap
 Naravno, mi ćemo povezati naš kod da umjesto "john" piše štogod se unese u input element.
 
 Više informacija imate na linkanoj dokumentaciji.
+
+BREAKPOINTS:
+
+* https://coder-coder.com/media-query-breakpoints/
+* https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488
