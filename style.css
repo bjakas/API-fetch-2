@@ -114,9 +114,11 @@ img {
   width: 110px;
   height: 110px;
   border-radius: 50%;
+  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  background-color: white;
 }
 img:hover {
   transition: 3s;
-  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
-  background-color: white;
+  box-shadow: -5px -5px 10px #1e1e1f, 5px 5px 10px #1e1e1f;
+  background-color: rgb(69 90 100);
 }
