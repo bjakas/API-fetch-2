@@ -10,12 +10,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <!-- style for search icon from fontawsome -->
   <link rel="stylesheet" href="all.min.css">
 </head>
 
 <body>
+
+  <div class="wrapping-container">
+
+    <div class="container-for-header">
+      <img src="././media/github.png" alt="GitHub logo" class="logo">
+      <h1>Welcome to GitHub's search engine!</h1>
+    </div>
+
+    <input type="checkbox" id="check">
+
+    <div class="container-for-input">
+      <input data-search-input type="text" placeholder="Search here..." />
+      <label for="check"><i class="fas fa-search"></i></label>
+    </div>
+
+    <div data-loading></div>
+    <div data-error></div>
+
+    <table>
+      <thead class="container-for-table-header" data-search-table-header>
+        <tr>
+          <th></th>
+          <th>Avatar</th>
+          <th>Login</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody class="container-for-results" data-search-result>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script src="all.min.js"></script>
+
+</body>
+
+<!-- v.1. with lists
+  <body>
 
   <div class="wrapping-container">
 
@@ -38,5 +78,6 @@
   <script src="app.js"></script>
   <script src="all.min.js"></script>
 </body>
+-->
 
 </html>

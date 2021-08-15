@@ -1,37 +1,63 @@
-@keyframes slide-in {
+@-webkit-keyframes slide-in {
   from {
-      transform: translateY(-200px);
-      opacity: 0;
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+    opacity: 0;
   }
   to {
-      transform: translateY(0px);
-      opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
   }
 }
 
 *, *::before, *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 16px; /* While em is relative to the font-size of its direct or nearest parent, rem is only relative to the html (root) font-size. */
+  font-size: 16px;
+  /* While em is relative to the font-size of its direct or nearest parent, rem is only relative to the html (root) font-size. */
 }
 
 body {
-  background-color: rgb(69 90 100);
-  color: black;
-  font-family: 'Ubuntu', sans-serif; 
+  background-color: #455a64;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .wrapping-container {
-  animation: slide-in 3s ease 1s 1 normal forwards;
+  -webkit-animation: slide-in 3s ease 1s 1 normal forwards;
+          animation: slide-in 3s ease 1s 1 normal forwards;
   opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   min-width: 100vw;
 }
 
@@ -44,6 +70,7 @@ body {
 }
 
 .container-for-input {
+  -webkit-transition: .5s;
   transition: .5s;
   position: relative;
   width: 3.75rem;
@@ -54,12 +81,21 @@ body {
 
 .container-for-results {
   padding-bottom: 2.18rem;
-  color: rgb(255, 255, 255);
+  color: white;
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
+  line-height: 4rem;
 }
 
-.container-for-input label{
+.container-for-table-header {
+  color: white;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 4rem;
+}
+
+.container-for-input label {
+  -webkit-transition: .5s;
   transition: .5s;
   position: absolute;
   right: 0;
@@ -70,12 +106,15 @@ body {
   text-align: center;
   color: white;
   cursor: pointer;
-  box-shadow: -5px -5px 8px #edeff1, 5px 5px 8px #cacfd8;
+  -webkit-box-shadow: -5px -5px 8px #edeff1, 5px 5px 8px #cacfd8;
+          box-shadow: -5px -5px 8px #edeff1, 5px 5px 8px #cacfd8;
 }
 
 .container-for-input label:hover {
-  box-shadow: -10px -10px 15px #edeff1, 10px 10px 15px #cacfd8;
-  transform: scale(1.1);
+  -webkit-box-shadow: -10px -10px 15px #edeff1, 10px 10px 15px #cacfd8;
+          box-shadow: -10px -10px 15px #edeff1, 10px 10px 15px #cacfd8;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .container-for-input input {
@@ -87,13 +126,15 @@ body {
   outline: none;
   font-size: 1rem;
   padding-left: 1.56rem;
-  color: rgb(255, 255, 255);
-  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  color: white;
+  -webkit-box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+          box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
   opacity: 0;
 }
 
 .container-for-input input:focus {
-  box-shadow: -10px -10px 20px #edeff1, 10px 10px 20px #cacfd8;
+  -webkit-box-shadow: -10px -10px 20px #edeff1, 10px 10px 20px #cacfd8;
+          box-shadow: -10px -10px 20px #edeff1, 10px 10px 20px #cacfd8;
 }
 
 #check {
@@ -102,20 +143,22 @@ body {
   right: 0;
 }
 
-#check:checked+.container-for-input{
+#check:checked + .container-for-input {
   width: 37.5rem;
 }
 
-#check:checked+.container-for-input > input {
+#check:checked + .container-for-input > input {
   opacity: 1;
 }
 
-#check:checked+.container-for-input> label {
-  box-shadow: none;
+#check:checked + .container-for-input > label {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
-#check:checked+.container-for-input > label:hover {
-  transform: scale(1);
+#check:checked + .container-for-input > label:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 h1 {
@@ -125,34 +168,98 @@ h1 {
   color: white;
 }
 
+::-webkit-input-placeholder {
+  color: white;
+  opacity: 1;
+  /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+}
+
+:-ms-input-placeholder {
+  color: white;
+  opacity: 1;
+  /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+}
+
+::-ms-input-placeholder {
+  color: white;
+  opacity: 1;
+  /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+}
+
 ::placeholder {
   color: white;
-  opacity: 1; /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+  opacity: 1;
+  /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
 }
 
 .logo {
+  -webkit-transition: 3s;
+  transition: 3s;
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
   width: 6.875rem;
   height: 6.875rem;
   border-radius: 50%;
-  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  -webkit-box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+          box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
   background-color: white;
 }
+
 .logo:hover {
+  -webkit-transition: 3s;
   transition: 3s;
-  box-shadow: -5px -5px 10px #1e1e1f, 5px 5px 10px #1e1e1f;
-  background-color: rgb(69 90 100);
+  -webkit-box-shadow: -5px -5px 10px #1e1e1f, 5px 5px 10px #1e1e1f;
+          box-shadow: -5px -5px 10px #1e1e1f, 5px 5px 10px #1e1e1f;
+  background-color: #455a64;
+}
+
+.avatar {
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  text-align: left;
+  vertical-align: baseline;
+  height: 2rem;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+th, td {
+  padding: 1rem 1rem 0rem 1rem;
+  font-size: 1rem;
+}
+
+th {
+  border-style: none;
+  font-size: 2rem;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+td a {
+  color: red;
+}
+
+tr:nth-child(even) {
+  background-color: #7c7979;
 }
 
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
 */
-
 @media (min-width: 1281px) {
   html {
-    font-size: 18px; 
+    font-size: 18px;
   }
 }
 
@@ -160,10 +267,9 @@ h1 {
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
-
 @media (min-width: 1025px) and (max-width: 1280px) {
   html {
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
 
@@ -171,10 +277,9 @@ h1 {
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
-
 @media (min-width: 768px) and (max-width: 1024px) {
   html {
-    font-size: 14px; 
+    font-size: 14px;
   }
 }
 
@@ -182,10 +287,9 @@ h1 {
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
-
 @media (min-width: 481px) and (max-width: 767px) {
   html {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }
 
@@ -193,9 +297,9 @@ h1 {
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
-
 @media (min-width: 320px) and (max-width: 480px) {
   html {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }
+/*# sourceMappingURL=style.css.map */

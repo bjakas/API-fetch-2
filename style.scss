@@ -1,0 +1,244 @@
+@import "./base/colors";
+
+@keyframes slide-in {
+  from {
+      transform: translateY(-200px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* While em is relative to the font-size of its direct or nearest parent, rem is only relative to the html (root) font-size. */
+}
+
+body {
+  background-color: $color-primary;
+  font-family: 'Ubuntu', sans-serif; 
+}
+.wrapping-container {
+  animation: slide-in 3s ease 1s 1 normal forwards;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-width: 100vw;
+}
+#check {
+  opacity: 0;
+}
+
+.container-for-header {
+  text-align: center;
+}
+
+.container-for-input {
+  transition: .5s;
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-bottom: 2.18rem;
+  margin-top: 2.18rem;
+}
+.container-for-results {
+  padding-bottom: 2.18rem;
+  color: $text-color;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 4rem;
+}
+
+.container-for-table-header {
+  color: $text-color;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 4rem;
+}
+.container-for-input label{
+  transition: .5s;
+  position: absolute;
+  right: 0;
+  width: 3.75rem;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  border-radius: 50%;
+  text-align: center;
+  color: $text-color;
+  cursor: pointer;
+  box-shadow: -5px -5px 8px #edeff1, 5px 5px 8px #cacfd8;
+}
+.container-for-input label:hover {
+  box-shadow: -10px -10px 15px #edeff1, 10px 10px 15px #cacfd8;
+  transform: scale(1.1);
+}
+
+.container-for-input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+  padding-left: 1.56rem;
+  color: $text-color;
+  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  opacity: 0;
+}
+
+.container-for-input input:focus {
+  box-shadow: -10px -10px 20px #edeff1, 10px 10px 20px #cacfd8;
+}
+
+#check {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#check:checked+.container-for-input{
+  width: 37.5rem;
+}
+
+#check:checked+.container-for-input > input {
+  opacity: 1;
+}
+
+#check:checked+.container-for-input> label {
+  box-shadow: none;
+}
+
+#check:checked+.container-for-input > label:hover {
+  transform: scale(1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.375rem;
+  font-weight: bold;
+  color: $text-color;
+}
+
+::placeholder {
+  color: $text-color;
+  opacity: 1; /* Firefox adds a lower opacity to the placeholder, so we use opacity: 1 to fix this. */
+}
+
+.logo {
+  transition: 3s;
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+  width: 6.875rem;
+  height: 6.875rem;
+  border-radius: 50%;
+  box-shadow: -5px -5px 10px #edeff1, 5px 5px 10px #cacfd8;
+  background-color: white;
+}
+.logo:hover {
+  transition: 3s;
+  box-shadow: -5px -5px 10px #1e1e1f, 5px 5px 10px #1e1e1f;
+  background-color: $color-primary;
+}
+
+.avatar {
+height: 3.125rem;
+width: 3.125rem;
+border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  text-align: left;
+  vertical-align: baseline;
+  height: 2rem;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+th, td {
+  padding: 1rem 1rem 0rem 1rem;
+  font-size: 1rem;
+  
+}
+th {
+  border-style: none;
+  font-size: 2rem;
+}
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+td a {
+  color: $link-color;
+}
+
+tr:nth-child(even) {
+  background-color: $even-rows-color;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  html {
+    font-size: 18px; 
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  html {
+    font-size: 16px; 
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 14px; 
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  html {
+    font-size: 12px; 
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  html {
+    font-size: 12px; 
+  }
+}
