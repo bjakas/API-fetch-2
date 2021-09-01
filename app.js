@@ -28,10 +28,10 @@ inputElement.addEventListener('keyup', (event) => {
     .then(data => {
       loadingElement.innerHTML = '';
 
-      for (let i = 0; i < 30; i++) { // i < data.items.length
+      for (let i = 0; i < data.items.length; i++) { // i < data.items.length
 
         const item = data.items[i];
-        const itemNumber = i + 1; // starts at 1
+        const itemNumber = i; // starts at 1
 
         resultElementHeader.style.opacity = "1";
 
@@ -39,7 +39,7 @@ inputElement.addEventListener('keyup', (event) => {
 
         itemElement.innerHTML = `
         <tr>
-        <td><span>${itemNumber}. </span></td>
+        <td><span>${itemNumber + 1}. </span></td>
         <td><img class="avatar" src="${item.avatar_url}"></td>
         <td><a href="${item.html_url}">${item.login}</a></td>
         <td><span>${item.id}</span></td>
